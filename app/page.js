@@ -6,17 +6,7 @@ export default function Home() {
   return (
     <main className="bg-[#0F0F0F]">
       <div style={{ width: '100%', height: '600px', position: 'relative', zIndex: 0 }}>
-        <Galaxy   mouseRepulsion={true}
-
-    mouseInteraction={true}
-
-    density={1.5}
-
-    glowIntensity={0.5}
-
-    saturation={0.0}
-
-    hueShift={0}>
+      
       
       {/* 1. HERO SECTION */}
       <section className="relative overflow-hidden py-24 lg:py-32 bg-gradient-to-b from-[#1A1A1A] to-[#0F0F0F]">
@@ -118,7 +108,6 @@ export default function Home() {
           </div>
         </div>
       </section>
-</Galaxy >
 </div>
     </main>
   );

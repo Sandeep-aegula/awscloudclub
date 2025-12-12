@@ -1,111 +1,234 @@
 'use client';
 
-import JoinForm from '@/Components/JoinForm';
+import { useState } from 'react';
+import Navbar from '@/Components/Navbar';
+import Footer from '@/Components/Footer';
+import Particles from '@/Components/Particles';
 
-export default function JoinUsPage() {
+export default function JoinUs() {
+  const [activeTab, setActiveTab] = useState('core');
+  const [formData, setFormData] = useState({
+    fullName: '',
+    email: '',
+    phone: '',
+    query: ''
+  });
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({
+      ...prev,
+      [name]: value
+    }));
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log('Form submitted:', { ...formData, tab: activeTab });
+    // Reset form
+    setFormData({
+      fullName: '',
+      email: '',
+      phone: '',
+      query: ''
+    });
+    alert('Thank you! We will get back to you soon.');
+  };
+
+  const tabs = [
+    { id: 'core', label: 'Core Team', icon: '👥' },
+    { id: 'collab', label: 'Collaborate', icon: '🤝' },
+    { id: 'speak', label: 'Want to Speak?', icon: '🎤' }
+  ];
+
   return (
-    <main className="min-h-screen bg-[#0F0F0F]">
-      {/* Hero Section */}
-      <section className="relative overflow-hidden py-16 lg:py-24 bg-gradient-to-br from-[#1A1A1A] via-[#0F0F0F] to-[#0F0F0F]">
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-[#C96969]/10 rounded-full blur-3xl -z-10" />
-        
-        <div className="max-w-4xl mx-auto px-4 text-center">
-          <h1 className="text-4xl md:text-5xl font-bold text-[#E8E8E8] mb-4">
-            Join AWS Club MLRITM
+    <div className="min-h-screen flex flex-col bg-[#0F0F0F]">
+      <div className="absolute inset-0 z-0">
+        <Particles />
+      </div>
+      
+
+      <main className="relative z-10 flex-1 py-16 px-4 md:px-8">
+        {/* Hero Section */}
+        <div className="max-w-7xl mx-auto mb-16 text-center">
+          <h1 className="text-5xl md:text-6xl font-bold text-[#E8E8E8] mb-6 leading-tight">
+            Get in Touch
           </h1>
-          <p className="text-lg text-[#B0B0B0] max-w-2xl mx-auto mb-8">
-            Become part of a vibrant community of cloud enthusiasts, learn from industry experts, and grow your AWS skills.
+          <p className="text-lg text-[#B0B0B0] max-w-2xl mx-auto">
+            Join our community, collaborate with us, or speak at our events. We&apos;d love to hear from you!
           </p>
+        </div>
+
+        {/* Two Column Layout */}
+        <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12">
           
-          {/* Benefits Overview */}
-          <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-4 mt-12">
-            <div className="cloud-card p-4">
-              <div className="text-3xl mb-2">💰</div>
-              <h3 className="font-semibold text-[#E8E8E8]">Free AWS Credits</h3>
+          {/* Left Column - Contact Info & Map */}
+          <div className="space-y-8">
+            
+            {/* Contact Information */}
+            <div className="backdrop-blur-md bg-[rgba(38,38,38,0.6)] border border-[rgba(200,200,200,0.1)] rounded-lg p-8 hover:border-[rgba(200,200,200,0.2)] transition-all duration-300">
+              <h2 className="text-2xl font-bold text-[#E8E8E8] mb-8">Contact Information</h2>
+              
+              <div className="space-y-6">
+                {/* Address */}
+                <div className="flex gap-4 items-start">
+                  <div className="text-3xl">📍</div>
+                  <div>
+                    <h3 className="text-lg font-semibold text-[#E8E8E8] mb-2">Address</h3>
+                    <p className="text-[#B0B0B0]">
+                      MLRITM Campus<br />
+                      Dundigal, Hyderabad<br />
+                      India 
+                    </p>
+                  </div>
+                </div>
+
+                {/* Email */}
+                <div className="flex gap-4 items-start">
+                  <div className="text-3xl">✉️</div>
+                  <div>
+                    <h3 className="text-lg font-semibold text-[#E8E8E8] mb-2">Email</h3>
+                    <a 
+                      href="mailto:example@mlritm.com"
+                      className="text-[#C96969] hover:text-[#E8A5A5] transition-colors"
+                    >
+                      example@mlritm.com
+                    </a>
+                  </div>
+                </div>
+
+                
+              </div>
             </div>
-            <div className="cloud-card p-4">
-              <div className="text-3xl mb-2">🎓</div>
-              <h3 className="font-semibold text-[#E8E8E8]">Workshops</h3>
+
+            {/* Google Maps Embed */}
+            <div className="backdrop-blur-md bg-[rgba(38,38,38,0.6)] border border-[rgba(200,200,200,0.1)] rounded-lg overflow-hidden h-80 hover:border-[rgba(200,200,200,0.2)] transition-all duration-300">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4149.714462169481!2d78.4149708110941!3d17.59895448325526!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb8ecff7ce096d%3A0xb155107b0b2be21!2sMarri%20Laxman%20Reddy%20Institute%20of%20Technology%20and%20Management!5e1!3m2!1sen!2sin!4v1765537425358!5m2!1sen!2sin"
+                width="100%"
+                height="100%"
+                style={{ border: 0 }}
+                allowFullScreen=""
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+              />
             </div>
-            <div className="cloud-card p-4">
-              <div className="text-3xl mb-2">🏆</div>
-              <h3 className="font-semibold text-[#E8E8E8]">Certifications</h3>
+          </div>
+
+          {/* Right Column - Form with Tabs */}
+          <div className="backdrop-blur-md bg-[rgba(38,38,38,0.6)] border border-[rgba(200,200,200,0.1)] rounded-lg p-8 hover:border-[rgba(200,200,200,0.2)] transition-all duration-300">
+            <h2 className="text-2xl font-bold text-[#E8E8E8] mb-8">Send us a Message</h2>
+
+            {/* Tab Navigation */}
+            <div className="flex gap-2 mb-8 border-b border-[rgba(200,200,200,0.1)]">
+              {tabs.map(tab => (
+                <button
+                  key={tab.id}
+                  onClick={() => setActiveTab(tab.id)}
+                  className={`px-4 py-3 font-medium text-sm transition-all duration-300 border-b-2 ${
+                    activeTab === tab.id
+                      ? 'border-[#C96969] text-[#C96969]'
+                      : 'border-transparent text-[#B0B0B0] hover:text-[#E8E8E8]'
+                  }`}
+                >
+                  <span className="mr-2">{tab.icon}</span>
+                  {tab.label}
+                </button>
+              ))}
             </div>
-            <div className="cloud-card p-4">
-              <div className="text-3xl mb-2">🌐</div>
-              <h3 className="font-semibold text-[#E8E8E8]">Networking</h3>
-            </div>
+
+            {/* Tab Content & Form */}
+            <form onSubmit={handleSubmit} className="space-y-6">
+              {/* Tab Description */}
+              <div className="text-sm text-[#B0B0B0] mb-6">
+                {activeTab === 'core' && 'Join our core team and help lead the AWS Club at MSRIT.'}
+                {activeTab === 'collab' && 'Interested in collaborating? Let us know how we can work together!'}
+                {activeTab === 'speak' && 'Share your expertise with our community. We\'d love to have you speak at our events.'}
+              </div>
+
+              {/* Full Name */}
+              <div>
+                <label htmlFor="fullName" className="block text-sm font-medium text-[#E8E8E8] mb-2">
+                  Full Name
+                </label>
+                <input
+                  type="text"
+                  id="fullName"
+                  name="fullName"
+                  value={formData.fullName}
+                  onChange={handleInputChange}
+                  placeholder="Your full name"
+                  required
+                  className="w-full px-4 py-2 bg-[#262626] border border-[#404040] rounded-lg text-[#E8E8E8] placeholder-[#666666] focus:outline-none focus:border-[#C96969] focus:ring-1 focus:ring-[#C96969] transition-all duration-300"
+                />
+              </div>
+
+              {/* Email */}
+              <div>
+                <label htmlFor="email" className="block text-sm font-medium text-[#E8E8E8] mb-2">
+                  Email Address
+                </label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  value={formData.email}
+                  onChange={handleInputChange}
+                  placeholder="your.email@example.com"
+                  required
+                  className="w-full px-4 py-2 bg-[#262626] border border-[#404040] rounded-lg text-[#E8E8E8] placeholder-[#666666] focus:outline-none focus:border-[#C96969] focus:ring-1 focus:ring-[#C96969] transition-all duration-300"
+                />
+              </div>
+
+              {/* Phone */}
+              <div>
+                <label htmlFor="phone" className="block text-sm font-medium text-[#E8E8E8] mb-2">
+                  Phone Number
+                </label>
+                <input
+                  type="tel"
+                  id="phone"
+                  name="phone"
+                  value={formData.phone}
+                  onChange={handleInputChange}
+                  placeholder="+91 XXXXX XXXXX"
+                  required
+                  className="w-full px-4 py-2 bg-[#262626] border border-[#404040] rounded-lg text-[#E8E8E8] placeholder-[#666666] focus:outline-none focus:border-[#C96969] focus:ring-1 focus:ring-[#C96969] transition-all duration-300"
+                />
+              </div>
+
+              {/* Query/Message */}
+              <div>
+                <label htmlFor="query" className="block text-sm font-medium text-[#E8E8E8] mb-2">
+                  Your Message
+                </label>
+                <textarea
+                  id="query"
+                  name="query"
+                  value={formData.query}
+                  onChange={handleInputChange}
+                  placeholder="Tell us more about your interest..."
+                  rows="5"
+                  required
+                  className="w-full px-4 py-2 bg-[#262626] border border-[#404040] rounded-lg text-[#E8E8E8] placeholder-[#666666] focus:outline-none focus:border-[#C96969] focus:ring-1 focus:ring-[#C96969] transition-all duration-300 resize-none"
+                />
+              </div>
+
+              {/* Submit Button */}
+              <button
+                type="submit"
+                className="w-full py-3 px-6 bg-gradient-to-r from-blue-600 to-purple-600 text-[#E8E8E8] font-semibold rounded-lg hover:from-blue-700 hover:to-purple-700 transition-all duration-300 transform hover:scale-105 active:scale-95"
+              >
+                Send Message
+              </button>
+            </form>
           </div>
         </div>
-      </section>
+      </main>
 
-      {/* Form Section */}
-      <section className="py-16 px-4 bg-[#0F0F0F]">
-        <div className="max-w-4xl mx-auto">
-          <div className="mb-12">
-            <h2 className="text-3xl font-bold text-[#E8E8E8] mb-4 text-center">Ready to Join?</h2>
-            <p className="text-center text-[#B0B0B0] mb-8">
-              Fill out the form below to join AWS Club MLRITM. We&apos;ll get back to you soon!
-            </p>
-          </div>
-
-          {/* Form */}
-          <div className="bg-[#262626] border border-[#404040] rounded-2xl p-8 shadow-lg">
-            <JoinForm />
-          </div>
-        </div>
-      </section>
-
-      {/* FAQ Section */}
-      <section className="py-16 px-4 bg-[#1A1A1A] border-t border-[#404040]">
-        <div className="max-w-4xl mx-auto">
-          <h2 className="text-3xl font-bold text-[#E8E8E8] mb-12 text-center">Frequently Asked Questions</h2>
-          
-          <div className="grid md:grid-cols-2 gap-8">
-            <div>
-              <h3 className="font-semibold text-[#E8E8E8] mb-2">Who can join?</h3>
-              <p className="text-[#B0B0B0]">
-                Any student from MLRITM can join AWS Club regardless of their year or department. We welcome beginners and experienced learners.
-              </p>
-            </div>
-            
-            <div>
-              <h3 className="font-semibold text-[#E8E8E8] mb-2">Is there a membership fee?</h3>
-              <p className="text-[#B0B0B0]">
-                No, AWS Club membership is completely free! All events and resources are available to our members at no cost.
-              </p>
-            </div>
-            
-            <div>
-              <h3 className="font-semibold text-[#E8E8E8] mb-2">How often do you organize events?</h3>
-              <p className="text-[#B0B0B0]">
-                We typically organize workshops, webinars, and meetups bi-weekly. Check our Events page for the latest schedule.
-              </p>
-            </div>
-            
-            <div>
-              <h3 className="font-semibold text-[#E8E8E8] mb-2">Will I get AWS credits?</h3>
-              <p className="text-[#B0B0B0]">
-                Yes! Members are eligible for free AWS credits and can use them for hands-on projects and learning.
-              </p>
-            </div>
-            
-            <div>
-              <h3 className="font-semibold text-[#E8E8E8] mb-2">Can I contribute to the club?</h3>
-              <p className="text-[#B0B0B0]">
-                Absolutely! We encourage members to lead sessions, organize events, or contribute in other ways. Talk to our leadership team.
-              </p>
-            </div>
-            
-            <div>
-              <h3 className="font-semibold text-[#E8E8E8] mb-2">How can I contact the club?</h3>
-              <p className="text-[#B0B0B0]">
-                You can reach us through our social media channels or visit during our office hours. Check the footer for contact details.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-    </main>
+      <div className="relative z-10">
+        <Footer />
+      </div>
+    </div>
   );
 }
