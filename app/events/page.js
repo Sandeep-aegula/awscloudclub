@@ -1,7 +1,8 @@
 'use client';
 
 import EventCard from '@/Components/EventCard';
-import GalleryGrid from '@/Components/GalleryGrid';
+import ChromaGrid from '@/Components/ChromaGrid';
+import Antigravity from '@/Components/AntiGravity';
 
 export default function EventsPage() {
   const upcomingEvents = [
@@ -70,17 +71,70 @@ export default function EventsPage() {
     { emoji: '🎯', title: 'Goal Achievement', description: 'Celebrating monthly goals and milestones' },
   ];
 
+  const chromaGridItems = [
+    {
+      image: "https://images.unsplash.com/photo-1523580494863-6f3031224c94?q=80&w=2670&auto=format&fit=crop",
+      title: "AWS Lambda Workshop",
+      subtitle: "Hands-on Serverless Masterclass",
+      date: "Jan 15, 2026",
+      location: "Tech Hub, Room 101",
+      handle: "@CloudClubLambda",
+      borderColor: "#FF9900",
+      gradient: "linear-gradient(145deg, #FF9900, #000)",
+      url: "#"
+    },
+    {
+      image: "https://images.unsplash.com/photo-1677442136019-21780ecad995?q=80&w=2532&auto=format&fit=crop",
+      title: "GenAI with Bedrock",
+      subtitle: "Building RAG Applications",
+      date: "Feb 10, 2026",
+      location: "Online / Zoom",
+      handle: "@GenAIBedrock",
+      borderColor: "#8C52FF",
+      gradient: "linear-gradient(145deg, #8C52FF, #000)",
+      url: "#"
+    },
+    {
+      image: "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?q=80&w=2684&auto=format&fit=crop",
+      title: "Cloud Career Day",
+      subtitle: "Networking with Industry Experts",
+      date: "Mar 05, 2026",
+      location: "Main Auditorium",
+      handle: "@CloudCareers",
+      borderColor: "#22C55E",
+      gradient: "linear-gradient(145deg, #22C55E, #000)",
+      url: "#"
+    }
+  ];
+
   return (
     <main className="min-h-screen bg-[#0F0F0F]">
+
+
+      <div style={{ width: '100%', height: '400px', position: 'relative' }} className='absolute inset-0 z-0'>
+        <Antigravity
+          count={300}
+          magnetRadius={6}
+          ringRadius={7}
+          waveSpeed={0.4}
+          waveAmplitude={1}
+          particleSize={1.5}
+          lerpSpeed={0.05}
+          color={'#FF9FFC'}
+          autoAnimate={true}
+          particleVariance={1}
+        />
+      </div>
+
       {/* Hero Section */}
-      <section className="relative overflow-hidden py-16 lg:py-24 bg-gradient-to-br from-[#1A1A1A] via-[#0F0F0F] to-[#0F0F0F]">
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-[#C96969]/10 rounded-full blur-3xl -z-10" />
-        
+      <section className="relative overflow-hidden py-16 lg:py-24 bg-gradient-to-br from-[#232F3E] via-[#0F0F0F] to-[#0F0F0F]">
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-[#FF9900]/10 rounded-full blur-3xl -z-10" />
+
         <div className="max-w-7xl mx-auto px-4 text-center">
-          <h1 className="text-4xl md:text-5xl font-bold text-[#E8E8E8] mb-4">
+          <h1 className="text-4xl md:text-5xl font-bold text-[#FFFFFF] mb-4">
             Events & Gallery
           </h1>
-          <p className="text-lg text-[#B0B0B0] max-w-2xl mx-auto">
+          <p className="text-lg text-[#D0D5DD] max-w-2xl mx-auto">
             Explore our upcoming events, past celebrations, and moments that inspire our community.
           </p>
         </div>
@@ -90,11 +144,11 @@ export default function EventsPage() {
       <section className="py-16 px-4 bg-[#0F0F0F]">
         <div className="max-w-7xl mx-auto">
           <div className="mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-[#E8E8E8] mb-2">📅 Upcoming Events</h2>
-            <p className="text-[#B0B0B0]">Don&apos;t miss out on these exciting sessions and learning opportunities.</p>
+            <h2 className="text-3xl md:text-4xl font-bold text-[#FFFFFF] mb-2">📅 Upcoming Events</h2>
+            <p className="text-[#D0D5DD]">Don&apos;t miss out on these exciting sessions and learning opportunities.</p>
           </div>
-          
-          <div className="grid md:grid-cols-2 lg:grid-cols-2 gap-6">
+
+          <div className="flex flex-wrap justify-center gap-6">
             {upcomingEvents.map((event) => (
               <EventCard
                 key={event.id}
@@ -102,6 +156,7 @@ export default function EventsPage() {
                 date={event.date}
                 description={event.description}
                 tag={event.tag}
+                cta="Register"
               />
             ))}
           </div>
@@ -109,14 +164,14 @@ export default function EventsPage() {
       </section>
 
       {/* Past Events Section */}
-      <section className="py-16 px-4 bg-[#1A1A1A] border-t border-[#404040]">
+      <section className="py-16 px-4 bg-[#1A2230] border-t border-[#3D4D63]">
         <div className="max-w-7xl mx-auto">
           <div className="mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-[#E8E8E8] mb-2">🎉 Past Events</h2>
-            <p className="text-[#B0B0B0]">Relive the moments and impact we&apos;ve created together.</p>
+            <h2 className="text-3xl md:text-4xl font-bold text-[#FFFFFF] mb-2">🎉 Past Events</h2>
+            <p className="text-[#D0D5DD]">Relive the moments and impact we&apos;ve created together.</p>
           </div>
-          
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+          <div className="flex flex-wrap justify-center gap-6">
             {pastEvents.map((event) => (
               <EventCard
                 key={event.id}
@@ -135,11 +190,22 @@ export default function EventsPage() {
       <section className="py-16 px-4 bg-[#0F0F0F]">
         <div className="max-w-7xl mx-auto">
           <div className="mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-[#E8E8E8] mb-2">📸 Gallery</h2>
-            <p className="text-[#B0B0B0]">Moments from our community, capturing growth, learning, and friendship.</p>
+            <h2 className="text-3xl md:text-4xl font-bold text-[#FFFFFF] mb-2">📸 Gallery</h2>
+            <p className="text-[#D0D5DD]">Moments from our community, capturing growth, learning, and friendship.</p>
           </div>
-          
-          <GalleryGrid images={galleryImages} />
+
+          {/* <GalleryGrid images={galleryImages} /> */}
+
+
+          <div style={{ height: '600px', position: 'relative' }}>
+            <ChromaGrid
+              items={chromaGridItems}
+              radius={300}
+              damping={0.45}
+              fadeOut={0.6}
+              ease="power3.out"
+            />
+          </div>
         </div>
       </section>
     </main>

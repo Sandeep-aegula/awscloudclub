@@ -4,38 +4,38 @@ import Link from 'next/link';
 
 export default function Footer() {
   return (
-    <footer className="bg-[#1A1A1A] text-[#E8E8E8] border-t border-[#404040]">
+    <footer className="bg-[#232F3E] text-[#FFFFFF] border-t border-[#3D4D63]">
       <div className="max-w-7xl mx-auto px-4 py-12">
         <div className="grid md:grid-cols-3 gap-8 mb-8">
           {/* About */}
           <div>
-            <h3 className="font-bold text-lg mb-4 text-[#E8E8E8]">AWS Club MLRITM</h3>
-            <p className="text-[#B0B0B0] text-sm leading-relaxed">
+            <h3 className="font-bold text-lg mb-4 text-[#FFFFFF]">AWS Club MLRITM</h3>
+            <p className="text-[#D0D5DD] text-sm leading-relaxed">
               Empowering Students With Cloud Innovation. Join our community of builders, learners, and future cloud architects.
             </p>
           </div>
 
           {/* Quick Links */}
           <div>
-            <h3 className="font-bold text-lg mb-4 text-[#E8E8E8]">Quick Links</h3>
+            <h3 className="font-bold text-lg mb-4 text-[#FFFFFF]">Quick Links</h3>
             <ul className="space-y-2 text-sm">
               <li>
-                <Link href="/" className="text-[#B0B0B0] hover:text-[#C96969] transition-colors">
+                <Link href="/" className="text-[#D0D5DD] hover:text-[#FF9900] transition-colors">
                   Home
                 </Link>
               </li>
               <li>
-                <Link href="/events" className="text-[#B0B0B0] hover:text-[#C96969] transition-colors">
+                <Link href="/events" className="text-[#D0D5DD] hover:text-[#FF9900] transition-colors">
                   Events & Gallery
                 </Link>
               </li>
               <li>
-                <Link href="/team" className="text-[#B0B0B0] hover:text-[#C96969] transition-colors">
+                <Link href="/team" className="text-[#D0D5DD] hover:text-[#FF9900] transition-colors">
                   Team
                 </Link>
               </li>
               <li>
-                <Link href="/joinus" className="text-[#B0B0B0] hover:text-[#C96969] transition-colors">
+                <Link href="/joinus" className="text-[#D0D5DD] hover:text-[#FF9900] transition-colors">
                   Join Us
                 </Link>
               </li>
@@ -44,13 +44,13 @@ export default function Footer() {
 
           {/* Social Links */}
           <div>
-            <h3 className="font-bold text-lg mb-4 text-[#E8E8E8]">Connect With Us</h3>
+            <h3 className="font-bold text-lg mb-4 text-[#FFFFFF]">Connect With Us</h3>
             <div className="flex gap-4">
               <a
                 href="https://linkedin.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-10 h-10 bg-[#C96969]/20 hover:bg-[#C96969] rounded-full flex items-center justify-center text-[#E8E8E8] transition-colors"
+                className="w-10 h-10 bg-[#FF9900]/20 hover:bg-[#FF9900] rounded-full flex items-center justify-center text-[#FFFFFF] transition-colors"
                 aria-label="LinkedIn"
               >
                 in
@@ -59,7 +59,7 @@ export default function Footer() {
                 href="https://twitter.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-10 h-10 bg-[#C96969]/20 hover:bg-[#C96969] rounded-full flex items-center justify-center text-[#E8E8E8] transition-colors"
+                className="w-10 h-10 bg-[#FF9900]/20 hover:bg-[#FF9900] rounded-full flex items-center justify-center text-[#FFFFFF] transition-colors"
                 aria-label="Twitter"
               >
                 𝕏
@@ -68,7 +68,7 @@ export default function Footer() {
                 href="https://instagram.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-10 h-10 bg-[#C96969]/20 hover:bg-[#C96969] rounded-full flex items-center justify-center text-[#E8E8E8] transition-colors"
+                className="w-10 h-10 bg-[#FF9900]/20 hover:bg-[#FF9900] rounded-full flex items-center justify-center text-[#FFFFFF] transition-colors"
                 aria-label="Instagram"
               >
                 📷
@@ -78,7 +78,7 @@ export default function Footer() {
         </div>
 
         {/* Divider */}
-        <div className="border-t border-[#404040] pt-8">
+        <div className="border-t border-[#3D4D63] pt-8">
           <p className="text-center text-sm text-[#808080]">
             Copyright © {new Date().getFullYear()} AWS Club MLRITM. All rights reserved.
           </p>

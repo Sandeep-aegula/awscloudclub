@@ -2,7 +2,8 @@
 
 import Link from 'next/link';
 import Image from 'next/image';
-import logo from '@/assessts/icon144.svg'; import { useState } from 'react';
+import logo from '@/assessts/icon144.svg';
+import { useState } from 'react';
 
 export default function Navbar() {
     const [isOpen, setIsOpen] = useState(false);
@@ -15,21 +16,21 @@ export default function Navbar() {
     ];
 
     return (
-        <nav className="sticky top-0 z-50 bg-grey-200 shadow-sm border-b ">
+        <nav className="sticky top-0 z-50 bg-[#232F3E] shadow-sm border-b border-[#ffffff4d]">
             <div className="max-w-7xl mx-auto px-4 py-4">
                 <div className="flex items-center justify-between">
                     {/* Logo */}
                     <Link href="/" className="flex items-center gap-2">
-                        <div className="w-10 h-10 bg-linear-to-br from-[#C96969] to-[#A14F4F] rounded-lg flex items-center justify-center text-white font-bold text-lg">
+                        <div className="w-10 h-10 rounded-lg  bg-transparent flex items-center justify-center text-white font-bold text-lg">
                             <Image
-                                src="/icon144.svg"
+                                src={logo}
                                 alt="My Icon"
                                 width={144}
                                 height={144}
                             />
                         </div>
-                        <span className="font-bold text-xl hidden sm:inline text-[#2E2E2E]">
-                            AWS Club <span className="text-[#C96969]">MLRITM</span>
+                        <span className="font-bold text-xl hidden sm:inline text-[#FFFFFF]">
+                            AWS Cloud Club <span className="text-[#FF9900]">MLRITM</span>
                         </span>
                     </Link>
 
@@ -39,7 +40,7 @@ export default function Navbar() {
                             <Link
                                 key={link.href}
                                 href={link.href}
-                                className="font-medium text-[#444444] hover:text-[#C96969] transition-colors"
+                                className="font-medium text-[#D0D5DD] hover:text-[#FF9900] transition-colors"
                             >
                                 {link.label}
                             </Link>
@@ -48,7 +49,7 @@ export default function Navbar() {
 
                     {/* Mobile Menu Button */}
                     <button
-                        className="md:hidden p-2"
+                        className="md:hidden p-2 text-[#FFFFFF]"
                         onClick={() => setIsOpen(!isOpen)}
                         aria-label="Toggle menu"
                     >
@@ -75,7 +76,7 @@ export default function Navbar() {
                             <Link
                                 key={link.href}
                                 href={link.href}
-                                className="font-medium text-[#444444] hover:text-[#C96969] transition-colors"
+                                className="font-medium text-[#D0D5DD] hover:text-[#FF9900] transition-colors"
                                 onClick={() => setIsOpen(false)}
                             >
                                 {link.label}

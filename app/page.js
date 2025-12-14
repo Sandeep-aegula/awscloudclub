@@ -11,21 +11,22 @@ export default function Home() {
       {/* 1. HERO SECTION */}
       <section className="relative overflow-hidden py-24 lg:py-32 bg-gradient-to-b from-[#1A1A1A] to-[#0F0F0F]">
         {/* Background Blob Decoration */}
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[800px] bg-[#C96969]/10 rounded-full blur-3xl -z-10" />
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[800px] bg-[#FF9900]/10 rounded-full blur-3xl -z-10" />
 
         <div className="max-w-7xl mx-auto px-4 text-center">
-          <span className="inline-block px-4 py-1.5 mb-6 text-sm font-semibold tracking-wider text-[#C96969] uppercase bg-[#C96969]/20 rounded-full">
-            Est. 2024
-          </span>
+        
 
-          <h1 className="text-5xl md:text-7xl font-bold text-[#E8E8E8] mb-6 leading-tight">
-            AWS Club <span className="text-[#C96969]">MLRITM</span>
+          <h1 className="text-5xl md:text-7xl font-bold text-[#FFFFFF] mb-6 leading-tight">
+            AWS Cloud Club <span className="text-[#FF9900]">MLRITM</span>
           </h1>
 
-          <p className="text-xl text-[#B0B0B0] mb-10 max-w-2xl mx-auto leading-relaxed">
+          <p className="text-xl text-[#D0D5DD] mb-10 max-w-2xl mx-auto leading-relaxed">
             Empowering Students With Cloud Innovation. <br className="hidden md:block" />
             Join a community of builders, learners, and future cloud architects.
           </p>
+          <div className='flex justify-center items-center gap-4 p-10 text-xl '>
+            <p className='bg-[#232F3E] rounded-full p-3'> An official Amazon Web Services (AWS) initiative</p>
+             </div>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
             <Link href="/joinus" className="btn-primary w-full sm:w-auto">
