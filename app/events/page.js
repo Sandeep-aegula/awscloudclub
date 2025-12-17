@@ -3,6 +3,7 @@
 import EventCard from '@/Components/EventCard';
 import ChromaGrid from '@/Components/ChromaGrid';
 import Antigravity from '@/Components/AntiGravity';
+import { Calendar, Sparkles, Image as ImageIcon } from 'lucide-react';
 
 export default function EventsPage() {
   const upcomingEvents = [
@@ -61,14 +62,14 @@ export default function EventsPage() {
   ];
 
   const galleryImages = [
-    { emoji: '🎓', title: 'Workshop Session', description: 'Students engaging in hands-on AWS workshop' },
-    { emoji: '🤝', title: 'Networking Event', description: 'Members networking with industry professionals' },
-    { emoji: '💻', title: 'Coding Session', description: 'Collaborative coding session on AWS services' },
-    { emoji: '🏆', title: 'Achievement', description: 'Team celebrating AWS certification milestone' },
-    { emoji: '📊', title: 'Presentation', description: 'Student presenting cloud architecture design' },
-    { emoji: '🚀', title: 'Project Launch', description: 'Launching a cloud-based project' },
-    { emoji: '👥', title: 'Team Photo', description: 'AWS Club MLRITM team gathering' },
-    { emoji: '🎯', title: 'Goal Achievement', description: 'Celebrating monthly goals and milestones' },
+    { title: 'Workshop Session', description: 'Students engaging in hands-on AWS workshop' },
+    { title: 'Networking Event', description: 'Members networking with industry professionals' },
+    { title: 'Coding Session', description: 'Collaborative coding session on AWS services' },
+    { title: 'Achievement', description: 'Team celebrating AWS certification milestone' },
+    { title: 'Presentation', description: 'Student presenting cloud architecture design' },
+    { title: 'Project Launch', description: 'Launching a cloud-based project' },
+    { title: 'Team Photo', description: 'AWS Club MLRITM team gathering' },
+    { title: 'Goal Achievement', description: 'Celebrating monthly goals and milestones' },
   ];
 
   const chromaGridItems = [
@@ -108,10 +109,10 @@ export default function EventsPage() {
   ];
 
   return (
-    <main className="min-h-screen bg-[#0F0F0F]">
+    <main className="min-h-screen bg-primary-bg">
 
 
-      <div style={{ width: '100%', height: '400px', position: 'relative' }} className='absolute inset-0 z-0'>
+      {/* <div style={{ width: '100%', height: '400px', position: 'relative' }} className='absolute inset-0 z-0'>
         <Antigravity
           count={300}
           magnetRadius={6}
@@ -124,28 +125,31 @@ export default function EventsPage() {
           autoAnimate={true}
           particleVariance={1}
         />
-      </div>
+      </div> */}
 
       {/* Hero Section */}
-      <section className="relative overflow-hidden py-16 lg:py-24 bg-gradient-to-br from-[#232F3E] via-[#0F0F0F] to-[#0F0F0F]">
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-[#FF9900]/10 rounded-full blur-3xl -z-10" />
+      <section className="relative overflow-hidden py-16 lg:py-24 bg-gradient-to-br from-secondary-bg via-primary-bg to-primary-bg">
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-aws-orange/10 rounded-full blur-3xl -z-10" />
 
         <div className="max-w-7xl mx-auto px-4 text-center">
-          <h1 className="text-4xl md:text-5xl font-bold text-[#FFFFFF] mb-4">
+          <h1 className="text-4xl md:text-5xl font-bold text-primary-text mb-4">
             Events & Gallery
           </h1>
-          <p className="text-lg text-[#D0D5DD] max-w-2xl mx-auto">
+          <p className="text-lg text-secondary-text max-w-2xl mx-auto">
             Explore our upcoming events, past celebrations, and moments that inspire our community.
           </p>
         </div>
       </section>
 
       {/* Upcoming Events Section */}
-      <section className="py-16 px-4 bg-[#0F0F0F]">
+      <section className="py-16 px-4 bg-primary-bg">
         <div className="max-w-7xl mx-auto">
           <div className="mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-[#FFFFFF] mb-2">📅 Upcoming Events</h2>
-            <p className="text-[#D0D5DD]">Don&apos;t miss out on these exciting sessions and learning opportunities.</p>
+            <div className="flex items-center gap-3 mb-2">
+              <Calendar className="w-8 h-8 text-aws-orange" />
+              <h2 className="text-3xl md:text-4xl font-bold text-primary-text">Upcoming Events</h2>
+            </div>
+            <p className="text-secondary-text">Don&apos;t miss out on these exciting sessions and learning opportunities.</p>
           </div>
 
           <div className="flex flex-wrap justify-center gap-6">
@@ -164,11 +168,14 @@ export default function EventsPage() {
       </section>
 
       {/* Past Events Section */}
-      <section className="py-16 px-4 bg-[#1A2230] border-t border-[#3D4D63]">
+      <section className="py-16 px-4 bg-secondary-bg border-t border-accent-dark-blue/20">
         <div className="max-w-7xl mx-auto">
           <div className="mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-[#FFFFFF] mb-2">🎉 Past Events</h2>
-            <p className="text-[#D0D5DD]">Relive the moments and impact we&apos;ve created together.</p>
+            <div className="flex items-center gap-3 mb-2">
+              <Sparkles className="w-8 h-8 text-aws-orange" />
+              <h2 className="text-3xl md:text-4xl font-bold text-primary-text">Past Events</h2>
+            </div>
+            <p className="text-secondary-text">Relive the moments and impact we&apos;ve created together.</p>
           </div>
 
           <div className="flex flex-wrap justify-center gap-6">
@@ -187,11 +194,14 @@ export default function EventsPage() {
       </section>
 
       {/* Gallery Section */}
-      <section className="py-16 px-4 bg-[#0F0F0F]">
+      <section className="py-16 px-4 bg-primary-bg">
         <div className="max-w-7xl mx-auto">
           <div className="mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-[#FFFFFF] mb-2">📸 Gallery</h2>
-            <p className="text-[#D0D5DD]">Moments from our community, capturing growth, learning, and friendship.</p>
+            <div className="flex items-center gap-3 mb-2">
+              <ImageIcon className="w-8 h-8 text-aws-orange" />
+              <h2 className="text-3xl md:text-4xl font-bold text-primary-text">Gallery</h2>
+            </div>
+            <p className="text-secondary-text">Moments from our community, capturing growth, learning, and friendship.</p>
           </div>
 
           {/* <GalleryGrid images={galleryImages} /> */}

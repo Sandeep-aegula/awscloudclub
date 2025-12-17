@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import Footer from '@/Components/Footer';
 import Particles from '@/Components/Particles';
+import { Users, Handshake, Mic } from 'lucide-react';
 
 export default function JoinUs() {
   const [activeTab, setActiveTab] = useState('core');
@@ -35,13 +36,13 @@ export default function JoinUs() {
   };
 
   const tabs = [
-    { id: 'core', label: 'Core Team', icon: '👥' },
-    { id: 'collab', label: 'Collaborate', icon: '🤝' },
-    { id: 'speak', label: 'Want to Speak?', icon: '🎤' }
+    { id: 'core', label: 'Core Team', icon: Users },
+    { id: 'collab', label: 'Collaborate', icon: Handshake },
+    { id: 'speak', label: 'Want to Speak?', icon: Mic }
   ];
 
   return (
-    <div className="min-h-screen flex flex-col bg-[#0F0F0F]">
+    <div className="min-h-screen flex flex-col bg-primary-bg">
       <div className="absolute inset-0 z-0">
         <Particles />
       </div>
@@ -50,10 +51,10 @@ export default function JoinUs() {
       <main className="relative z-10 flex-1 py-16 px-4 md:px-8">
         {/* Hero Section */}
         <div className="max-w-7xl mx-auto mb-16 text-center">
-          <h1 className="text-5xl md:text-6xl font-bold text-[#FFFFFF] mb-6 leading-tight">
+          <h1 className="text-5xl md:text-6xl font-bold text-primary-text mb-6 leading-tight">
             Get in Touch
           </h1>
-          <p className="text-lg text-[#D0D5DD] max-w-2xl mx-auto">
+          <p className="text-lg text-secondary-text max-w-2xl mx-auto">
             Join our community, collaborate with us, or speak at our events. We&apos;d love to hear from you!
           </p>
         </div>
@@ -120,20 +121,23 @@ export default function JoinUs() {
 
             {/* Tab Navigation */}
             <div className="flex gap-2 mb-8 border-b border-[rgba(86,185,242,0.2)]">
-              {tabs.map(tab => (
-                <button
-                  key={tab.id}
-                  onClick={() => setActiveTab(tab.id)}
-                  className={`px-4 py-3 font-medium text-sm transition-all duration-300 border-b-2 ${
-                    activeTab === tab.id
-                      ? 'border-[#FF9900] text-[#FF9900]'
-                      : 'border-transparent text-[#D0D5DD] hover:text-[#FFFFFF]'
-                  }`}
-                >
-                  <span className="mr-2">{tab.icon}</span>
-                  {tab.label}
-                </button>
-              ))}
+              {tabs.map(tab => {
+                const IconComponent = tab.icon;
+                return (
+                  <button
+                    key={tab.id}
+                    onClick={() => setActiveTab(tab.id)}
+                    className={`px-4 py-3 font-medium text-sm transition-all duration-300 border-b-2 flex items-center gap-2 ${
+                      activeTab === tab.id
+                        ? 'border-aws-orange text-aws-orange'
+                        : 'border-transparent text-secondary-text hover:text-primary-text'
+                    }`}
+                  >
+                    <IconComponent className="w-5 h-5" />
+                    {tab.label}
+                  </button>
+                );
+              })}
             </div>
 
             {/* Tab Content & Form */}
