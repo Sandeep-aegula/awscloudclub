@@ -1,4 +1,5 @@
 "use client"
+import { useEffect } from 'react';
 import Link from 'next/link';
 import { Cloud, Award, Users, DollarSign, Globe, Medal, Rocket } from 'lucide-react';
 import LightRays from '@/Components/LightRays';
