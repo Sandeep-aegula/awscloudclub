@@ -1,6 +1,8 @@
 'use client';
 
 import TiltedCard from '@/Components/TiltedCard';
+import InteractiveGrid from '@/Components/InteractiveGrid';
+import PixelSnow from '@/Components/PixelSnow';
 import Link from 'next/link';
 
 export default function TeamPage() {
@@ -72,56 +74,82 @@ export default function TeamPage() {
   ];
 
   return (
-    <main className="min-h-screen bg-[#0F0F0F]">
+    <main className="min-h-screen bg-[#0F0F0F] relative">
+      {/* Interactive Background */}
+      <div className="fixed inset-0 z-0">
+        <InteractiveGrid 
+          color="#FF9900"
+          secondaryColor="#56B9F2"
+          gridSize={50}
+          mouseRadius={180}
+          glowIntensity={0.9}
+        />
+      </div>
+
+      {/* Pixel Snow Effect */}
+      <div className="fixed inset-0 z-[1] pointer-events-none">
+        <PixelSnow
+          color="#FF9900"
+          flakeSize={0.008}
+          minFlakeSize={1.0}
+          pixelResolution={150}
+          speed={0.8}
+          depthFade={6}
+          brightness={0.8}
+          density={0.15}
+          variant="square"
+          direction={120}
+        />
+      </div>
+
       {/* Hero Section */}
-      <section className="relative overflow-hidden py-16 lg:py-24 bg-gradient-to-br from-[#232F3E] via-[#0F0F0F] to-[#0F0F0F]">
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-[#FF9900]/10 rounded-full blur-3xl -z-10" />
+      <section className="relative z-10 overflow-hidden py-16 lg:py-24 bg-gradient-to-br from-[#232F3E]/90 via-[#0F0F0F]/80 to-[#0F0F0F]/90">
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-[#FF9900]/10 rounded-full blur-3xl" />
         
         <div className="max-w-7xl mx-auto px-4 text-center">
           <h1 className="text-4xl md:text-5xl font-bold text-[#FFFFFF] mb-4">
             Meet Our Team
           </h1>
           <p className="text-lg text-[#D0D5DD] max-w-2xl mx-auto">
-            The talented individuals behind AWS Club MLRITM, dedicated to empowering students with cloud innovation.
+            The talented individuals behind AWS Cloud Club MLRITM, dedicated to empowering students with cloud innovation.
           </p>
         </div>
       </section>
 
       {/* Team Members Grid */}
-      <section className="py-16 px-4 bg-[#0F0F0F]">
+      <section className="relative z-10 py-16 px-4 bg-[#0F0F0F]/80 backdrop-blur-sm">
         <div className="max-w-7xl mx-auto">
           <div className="mb-12">
             <h2 className="text-3xl font-bold text-[#FFFFFF] mb-2">Leadership Team</h2>
             <p className="text-[#D0D5DD]">Connect with our leaders and explore opportunities to collaborate. Hover over cards to see their profiles (desktop).</p>
           </div>
           
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 justify-items-center">
             {teamMembers.map((member) => (
-              <div key={member.id} className="flex flex-col items-center">
-                <TiltedCard
-                  imageSrc={member.image}
-                  altText={member.name}
-                  name={member.name}
-                  role={member.role}
-                  linkedinUrl={member.linkedin}
-                  githubUrl={member.github}
-                  containerHeight="400px"
-                  containerWidth="300px"
-                  rotateAmplitude={14}
-                  scaleOnHover={1.05}
-                />
-              </div>
+              <TiltedCard
+                key={member.id}
+                imageSrc={member.image}
+                altText={member.name}
+                name={member.name}
+                role={member.role}
+                linkedinUrl={member.linkedin}
+                githubUrl={member.github}
+                containerHeight="340px"
+                containerWidth="260px"
+                rotateAmplitude={12}
+                scaleOnHover={1.02}
+              />
             ))}
           </div>
         </div>
       </section>
 
       {/* Join Us CTA Section */}
-      <section className="py-16 px-4 bg-[#232F3E] border-t border-[#3D4D63]">
+      <section className="relative z-10 py-16 px-4 bg-[#232F3E]/90 backdrop-blur-sm border-t border-[#3D4D63]">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-3xl font-bold text-[#FFFFFF] mb-4">Want to Join Our Team?</h2>
           <p className="text-[#D0D5DD] mb-8 text-lg leading-relaxed">
-            We're always looking for passionate students who want to contribute to the AWS Club. Whether you're interested in organizing events, creating content, or leading technical sessions, there's a place for you here.
+            We're always looking for passionate students who want to contribute to the AWS Cloud Club. Whether you're interested in organizing events, creating content, or leading technical sessions, there's a place for you here.
           </p>
           <Link href="/joinus" className="btn-primary">
             Become a Member

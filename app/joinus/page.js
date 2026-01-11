@@ -42,7 +42,7 @@ export default function JoinUs() {
   ];
 
   return (
-    <div className="min-h-screen flex flex-col bg-primary-bg">
+    <div className="max-h-screen flex flex-col bg-primary-bg">
       <div className="absolute inset-0 z-0">
         <Particles />
       </div>

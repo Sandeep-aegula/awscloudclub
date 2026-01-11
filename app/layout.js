@@ -14,10 +14,15 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata = {
-  title: "AWS Club MLRITM | Empowering Students With Cloud Innovation",
+  title: "AWS Cloud Club MLRITM | Empowering Students With Cloud Innovation",
   description: "Join the AWS Club at MLRITM. We empower students with cloud innovation through workshops, certification support, and technical meetups.",
   keywords: "AWS, Cloud, MLRITM, Students, Cloud Computing",
   authors: [{ name: "AWS Club MLRITM" }],
+  icons: {
+    icon: "/assessts/image.png",
+    shortcut: "/assessts/image.png",
+    apple: "/assessts/image.png",
+  },
 };
 
 export default function RootLayout({ children }) {

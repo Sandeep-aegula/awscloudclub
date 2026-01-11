@@ -137,7 +137,7 @@ const ChromaGrid = ({ items, className = '', radius = 300, damping = 0.45, fadeO
           style={{
             '--card-border': c.borderColor || 'transparent',
             background: c.gradient,
-            '--spotlight-color': 'rgba(255,255,255,0.3)'
+            '--spotlight-color': '#ffffff4d'
           }}>
           <div
             className="absolute inset-0 pointer-events-none transition-opacity duration-500 z-20 opacity-0 group-hover:opacity-100"

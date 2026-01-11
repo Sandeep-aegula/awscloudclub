@@ -1,8 +1,8 @@
 'use client';
 
 import EventCard from '@/Components/EventCard';
-import ChromaGrid from '@/Components/ChromaGrid';
-import Antigravity from '@/Components/AntiGravity';
+import GalleryGrid from '@/Components/GalleryGrid';
+import PixelSnow from '@/Components/PixelSnow';
 import { Calendar, Sparkles, Image as ImageIcon } from 'lucide-react';
 
 export default function EventsPage() {
@@ -62,73 +62,77 @@ export default function EventsPage() {
   ];
 
   const galleryImages = [
-    { title: 'Workshop Session', description: 'Students engaging in hands-on AWS workshop' },
-    { title: 'Networking Event', description: 'Members networking with industry professionals' },
-    { title: 'Coding Session', description: 'Collaborative coding session on AWS services' },
-    { title: 'Achievement', description: 'Team celebrating AWS certification milestone' },
-    { title: 'Presentation', description: 'Student presenting cloud architecture design' },
-    { title: 'Project Launch', description: 'Launching a cloud-based project' },
-    { title: 'Team Photo', description: 'AWS Club MLRITM team gathering' },
-    { title: 'Goal Achievement', description: 'Celebrating monthly goals and milestones' },
-  ];
-
-  const chromaGridItems = [
-    {
-      image: "https://images.unsplash.com/photo-1523580494863-6f3031224c94?q=80&w=2670&auto=format&fit=crop",
-      title: "AWS Lambda Workshop",
-      subtitle: "Hands-on Serverless Masterclass",
-      date: "Jan 15, 2026",
-      location: "Tech Hub, Room 101",
-      handle: "@CloudClubLambda",
-      borderColor: "#FF9900",
-      gradient: "linear-gradient(145deg, #FF9900, #000)",
-      url: "#"
+    { 
+      title: 'AWS Lambda Workshop', 
+      description: 'Students engaging in hands-on serverless computing workshop',
+      image: 'https://images.unsplash.com/photo-1523580494863-6f3031224c94?q=80&w=800&auto=format&fit=crop',
+      tag: 'Workshop'
     },
-    {
-      image: "https://images.unsplash.com/photo-1677442136019-21780ecad995?q=80&w=2532&auto=format&fit=crop",
-      title: "GenAI with Bedrock",
-      subtitle: "Building RAG Applications",
-      date: "Feb 10, 2026",
-      location: "Online / Zoom",
-      handle: "@GenAIBedrock",
-      borderColor: "#8C52FF",
-      gradient: "linear-gradient(145deg, #8C52FF, #000)",
-      url: "#"
+    { 
+      title: 'Cloud Architecture Session', 
+      description: 'Members designing scalable cloud architectures',
+      image: 'https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=800&auto=format&fit=crop',
+      tag: 'Session'
     },
-    {
-      image: "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?q=80&w=2684&auto=format&fit=crop",
-      title: "Cloud Career Day",
-      subtitle: "Networking with Industry Experts",
-      date: "Mar 05, 2026",
-      location: "Main Auditorium",
-      handle: "@CloudCareers",
-      borderColor: "#22C55E",
-      gradient: "linear-gradient(145deg, #22C55E, #000)",
-      url: "#"
-    }
+    { 
+      title: 'Networking Event', 
+      description: 'Team members networking with industry professionals',
+      image: 'https://images.unsplash.com/photo-1521737604893-d14cc237f11d?q=80&w=800&auto=format&fit=crop',
+      tag: 'Meetup'
+    },
+    { 
+      title: 'Hackathon 2024', 
+      description: 'Collaborative coding during our annual hackathon',
+      image: 'https://images.unsplash.com/photo-1504384308090-c894fdcc538d?q=80&w=800&auto=format&fit=crop',
+      tag: 'Hackathon'
+    },
+    { 
+      title: 'Certification Celebration', 
+      description: 'Team celebrating AWS certification achievements',
+      image: 'https://images.unsplash.com/photo-1529070538774-1843cb3265df?q=80&w=800&auto=format&fit=crop',
+      tag: 'Achievement'
+    },
+    { 
+      title: 'Tech Talk', 
+      description: 'Guest speaker presenting on cloud innovations',
+      image: 'https://images.unsplash.com/photo-1475721027785-f74eccf877e2?q=80&w=800&auto=format&fit=crop',
+      tag: 'Talk'
+    },
+    { 
+      title: 'Team Building', 
+      description: 'AWS Club MLRITM team outdoor activities',
+      image: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=800&auto=format&fit=crop',
+      tag: 'Team'
+    },
+    { 
+      title: 'Project Demo Day', 
+      description: 'Students showcasing their cloud projects',
+      image: 'https://images.unsplash.com/photo-1531482615713-2afd69097998?q=80&w=800&auto=format&fit=crop',
+      tag: 'Demo'
+    },
   ];
 
   return (
-    <main className="min-h-screen bg-primary-bg">
+    <main className="min-h-screen bg-primary-bg relative">
 
-
-      {/* <div style={{ width: '100%', height: '400px', position: 'relative' }} className='absolute inset-0 z-0'>
-        <Antigravity
-          count={300}
-          magnetRadius={6}
-          ringRadius={7}
-          waveSpeed={0.4}
-          waveAmplitude={1}
-          particleSize={1.5}
-          lerpSpeed={0.05}
-          color={'#FF9FFC'}
-          autoAnimate={true}
-          particleVariance={1}
+      {/* Pixel Snow Effect */}
+      <div className="fixed inset-0 z-0 pointer-events-none">
+        <PixelSnow
+          color="#FF9900"
+          flakeSize={0.008}
+          minFlakeSize={1.0}
+          pixelResolution={150}
+          speed={0.8}
+          depthFade={6}
+          brightness={0.8}
+          density={0.15}
+          variant="square"
+          direction={120}
         />
-      </div> */}
+      </div>
 
       {/* Hero Section */}
-      <section className="relative overflow-hidden py-16 lg:py-24 bg-gradient-to-br from-secondary-bg via-primary-bg to-primary-bg">
+      <section className="relative z-10 overflow-hidden py-16 lg:py-24 bg-gradient-to-br from-secondary-bg/95 via-primary-bg/90 to-primary-bg/95">
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-aws-orange/10 rounded-full blur-3xl -z-10" />
 
         <div className="max-w-7xl mx-auto px-4 text-center">
@@ -142,7 +146,7 @@ export default function EventsPage() {
       </section>
 
       {/* Upcoming Events Section */}
-      <section className="py-16 px-4 bg-primary-bg">
+      <section className="relative z-10 py-16 px-4 bg-primary-bg/95">
         <div className="max-w-7xl mx-auto">
           <div className="mb-12">
             <div className="flex items-center gap-3 mb-2">
@@ -168,7 +172,7 @@ export default function EventsPage() {
       </section>
 
       {/* Past Events Section */}
-      <section className="py-16 px-4 bg-secondary-bg border-t border-accent-dark-blue/20">
+      <section className="relative z-10 py-16 px-4 bg-secondary-bg/95 border-t border-accent-dark-blue/20">
         <div className="max-w-7xl mx-auto">
           <div className="mb-12">
             <div className="flex items-center gap-3 mb-2">
@@ -194,7 +198,7 @@ export default function EventsPage() {
       </section>
 
       {/* Gallery Section */}
-      <section className="py-16 px-4 bg-primary-bg">
+      <section className="relative z-10 py-16 px-4 bg-primary-bg/95">
         <div className="max-w-7xl mx-auto">
           <div className="mb-12">
             <div className="flex items-center gap-3 mb-2">
@@ -206,16 +210,7 @@ export default function EventsPage() {
 
           {/* <GalleryGrid images={galleryImages} /> */}
 
-
-          <div style={{ height: '600px', position: 'relative' }}>
-            <ChromaGrid
-              items={chromaGridItems}
-              radius={300}
-              damping={0.45}
-              fadeOut={0.6}
-              ease="power3.out"
-            />
-          </div>
+          <GalleryGrid images={galleryImages} />
         </div>
       </section>
     </main>

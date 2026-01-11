@@ -137,6 +137,22 @@ body {
   .neutral-bg {
     @apply bg-[#232F3E];
   }
+
+  /* New User Requested Utilities */
+  .glass-effect {
+    @apply bg-white/10 backdrop-blur-md border border-white/20 shadow-xl;
+  }
+
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-[#FF9900] via-[#FFB347] to-[#FF9900];
+  }
+
+  .grid-animate {
+    background-size: 30px 30px;
+    background-image: linear-gradient(to right, rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+    mask-image: linear-gradient(to bottom, transparent, black, transparent);
+  }
 }
 
 .dark {

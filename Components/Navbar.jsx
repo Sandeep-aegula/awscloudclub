@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import Image from 'next/image';
-import logo from '@/public/assessts/image.png';
+import logo from '@/public/assets/image.png';
 import { useState } from 'react';
 
 export default function Navbar() {
