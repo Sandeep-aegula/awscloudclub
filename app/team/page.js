@@ -1,7 +1,8 @@
 'use client';
 
 import TiltedCard from '@/Components/TiltedCard';
-import PixelSnow from '@/Components/PixelSnow';
+import Particles from '@/Components/Particles';
+import Footer from '@/Components/Footer';
 import Link from 'next/link';
 
 export default function TeamPage() {
@@ -74,20 +75,9 @@ export default function TeamPage() {
 
   return (
     <main className="min-h-screen bg-[#0F0F0F] relative">
-      {/* Pixel Snow Effect */}
+      {/* Particles Background Effect */}
       <div className="fixed inset-0 z-0 pointer-events-none">
-        <PixelSnow
-          color="#FF9900"
-          flakeSize={0.008}
-          minFlakeSize={1.0}
-          pixelResolution={150}
-          speed={0.8}
-          depthFade={6}
-          brightness={0.8}
-          density={0.15}
-          variant="square"
-          direction={120}
-        />
+        <Particles />
       </div>
 
       {/* Hero Section */}
@@ -144,6 +134,8 @@ export default function TeamPage() {
           </Link>
         </div>
       </section>
+
+     
     </main>
   );
 }

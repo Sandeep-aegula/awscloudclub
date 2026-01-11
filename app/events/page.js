@@ -2,7 +2,7 @@
 
 import EventCard from '@/Components/EventCard';
 import GalleryGrid from '@/Components/GalleryGrid';
-import PixelSnow from '@/Components/PixelSnow';
+import Particles from '@/Components/Particles';
 import { Calendar, Sparkles, Image as ImageIcon } from 'lucide-react';
 
 export default function EventsPage() {
@@ -115,20 +115,9 @@ export default function EventsPage() {
   return (
     <main className="min-h-screen bg-primary-bg relative">
 
-      {/* Pixel Snow Effect */}
+      {/* Particles Background Effect */}
       <div className="fixed inset-0 z-0 pointer-events-none">
-        <PixelSnow
-          color="#FF9900"
-          flakeSize={0.008}
-          minFlakeSize={1.0}
-          pixelResolution={150}
-          speed={0.8}
-          depthFade={6}
-          brightness={0.8}
-          density={0.15}
-          variant="square"
-          direction={120}
-        />
+        <Particles />
       </div>
 
       {/* Hero Section */}

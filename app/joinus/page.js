@@ -3,10 +3,11 @@
 import { useState } from 'react';
 import Footer from '@/Components/Footer';
 import Particles from '@/Components/Particles';
-import { Users, Handshake, Mic } from 'lucide-react';
+import { Users, Handshake, Mic, MapPin, Mail, Loader2 } from 'lucide-react';
 
 export default function JoinUs() {
   const [activeTab, setActiveTab] = useState('core');
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [formData, setFormData] = useState({
     fullName: '',
     email: '',
@@ -22,17 +23,38 @@ export default function JoinUs() {
     }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log('Form submitted:', { ...formData, tab: activeTab });
-    // Reset form
-    setFormData({
-      fullName: '',
-      email: '',
-      phone: '',
-      query: ''
-    });
-    alert('Thank you! We will get back to you soon.');
+    setIsSubmitting(true);
+
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ ...formData, tab: activeTab }),
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        alert('Thank you! Your message has been sent. We will get back to you soon.');
+        setFormData({
+          fullName: '',
+          email: '',
+          phone: '',
+          query: ''
+        });
+      } else {
+        alert(data.error || 'Something went wrong. Please try again.');
+      }
+    } catch (error) {
+      console.error('Error submitting form:', error);
+      alert('Failed to send message. Please try again later.');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const tabs = [
@@ -72,7 +94,9 @@ export default function JoinUs() {
               <div className="space-y-6">
                 {/* Address */}
                 <div className="flex gap-4 items-start">
-                  <div className="text-3xl">📍</div>
+                  <div className="w-12 h-12 rounded-full bg-[rgba(255,153,0,0.1)] flex items-center justify-center flex-shrink-0">
+                    <MapPin className="w-6 h-6 text-[#FF9900]" />
+                  </div>
                   <div>
                     <h3 className="text-lg font-semibold text-[#FFFFFF] mb-2">Address</h3>
                     <p className="text-[#D0D5DD]">
@@ -85,7 +109,9 @@ export default function JoinUs() {
 
                 {/* Email */}
                 <div className="flex gap-4 items-start">
-                  <div className="text-3xl">✉️</div>
+                  <div className="w-12 h-12 rounded-full bg-[rgba(255,153,0,0.1)] flex items-center justify-center flex-shrink-0">
+                    <Mail className="w-6 h-6 text-[#FF9900]" />
+                  </div>
                   <div>
                     <h3 className="text-lg font-semibold text-[#FFFFFF] mb-2">Email</h3>
                     <a 
@@ -220,9 +246,17 @@ export default function JoinUs() {
               {/* Submit Button */}
               <button
                 type="submit"
-                className="w-full py-3 px-6 bg-gradient-to-r from-[#FF9900] to-[#FFB333] text-white font-semibold rounded-lg hover:from-[#FFB333] hover:to-[#FFCC66] transition-all duration-300 transform hover:scale-105 active:scale-95"
+                disabled={isSubmitting}
+                className="w-full py-3 px-6 bg-gradient-to-r from-[#FF9900] to-[#FFB333] text-white font-semibold rounded-lg hover:from-[#FFB333] hover:to-[#FFCC66] transition-all duration-300 transform hover:scale-105 active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none flex items-center justify-center gap-2"
               >
-                Send Message
+                {isSubmitting ? (
+                  <>
+                    <Loader2 className="w-5 h-5 animate-spin" />
+                    Sending...
+                  </>
+                ) : (
+                  'Send Message'
+                )}
               </button>
             </form>
           </div>
