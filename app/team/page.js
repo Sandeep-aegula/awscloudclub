@@ -1,7 +1,6 @@
 'use client';
 
 import TiltedCard from '@/Components/TiltedCard';
-import InteractiveGrid from '@/Components/InteractiveGrid';
 import PixelSnow from '@/Components/PixelSnow';
 import Link from 'next/link';
 
@@ -75,19 +74,8 @@ export default function TeamPage() {
 
   return (
     <main className="min-h-screen bg-[#0F0F0F] relative">
-      {/* Interactive Background */}
-      <div className="fixed inset-0 z-0">
-        <InteractiveGrid 
-          color="#FF9900"
-          secondaryColor="#56B9F2"
-          gridSize={50}
-          mouseRadius={180}
-          glowIntensity={0.9}
-        />
-      </div>
-
       {/* Pixel Snow Effect */}
-      <div className="fixed inset-0 z-[1] pointer-events-none">
+      <div className="fixed inset-0 z-0 pointer-events-none">
         <PixelSnow
           color="#FF9900"
           flakeSize={0.008}
@@ -103,8 +91,8 @@ export default function TeamPage() {
       </div>
 
       {/* Hero Section */}
-      <section className="relative z-10 overflow-hidden py-16 lg:py-24 bg-gradient-to-br from-[#232F3E]/90 via-[#0F0F0F]/80 to-[#0F0F0F]/90">
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-[#FF9900]/10 rounded-full blur-3xl" />
+      <section className="relative z-10 overflow-hidden py-16 lg:py-24 bg-transparent">
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-[#FF9900]/5 rounded-full blur-3xl" />
         
         <div className="max-w-7xl mx-auto px-4 text-center">
           <h1 className="text-4xl md:text-5xl font-bold text-[#FFFFFF] mb-4">
@@ -117,7 +105,7 @@ export default function TeamPage() {
       </section>
 
       {/* Team Members Grid */}
-      <section className="relative z-10 py-16 px-4 bg-[#0F0F0F]/80 backdrop-blur-sm">
+      <section className="relative z-10 py-16 px-4 bg-transparent">
         <div className="max-w-7xl mx-auto">
           <div className="mb-12">
             <h2 className="text-3xl font-bold text-[#FFFFFF] mb-2">Leadership Team</h2>
@@ -145,7 +133,7 @@ export default function TeamPage() {
       </section>
 
       {/* Join Us CTA Section */}
-      <section className="relative z-10 py-16 px-4 bg-[#232F3E]/90 backdrop-blur-sm border-t border-[#3D4D63]">
+      <section className="relative z-10 py-16 px-4 bg-transparent border-t border-[#3D4D63]/30">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-3xl font-bold text-[#FFFFFF] mb-4">Want to Join Our Team?</h2>
           <p className="text-[#D0D5DD] mb-8 text-lg leading-relaxed">
