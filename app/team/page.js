@@ -2,7 +2,6 @@
 
 import TiltedCard from '@/Components/TiltedCard';
 import Particles from '@/Components/Particles';
-import Footer from '@/Components/Footer';
 import Link from 'next/link';
 
 export default function TeamPage() {
@@ -136,6 +135,7 @@ export default function TeamPage() {
       </section>
 
      
+      
     </main>
   );
 }

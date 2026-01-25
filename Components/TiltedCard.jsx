@@ -57,7 +57,7 @@ export default function TiltedCard({
   return (
     <motion.div
       ref={ref}
-      className="relative [perspective:1000px] cursor-pointer"
+      className="relative perspective-[1000px] cursor-pointer"
       style={{
         height: containerHeight,
         width: containerWidth,
@@ -70,13 +70,13 @@ export default function TiltedCard({
       onMouseLeave={handleMouseLeave}
     >
       {/* Card Container */}
-      <div className="relative w-full h-full [transform-style:preserve-3d] group">
+      <div className="relative w-full h-full transform-3d group">
         
         {/* Glowing Border Effect */}
-        <div className={`absolute -inset-[1px] rounded-3xl bg-gradient-to-br from-[#FF9900] via-[#FF9900]/50 to-[#FF9900]/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-sm`} />
+        <div className={`absolute -inset-px rounded-3xl bg-linear-to-br from-[#FF9900] via-[#FF9900]/50 to-[#FF9900]/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-sm`} />
         
         {/* Main Card */}
-        <div className="relative w-full h-full bg-gradient-to-b from-[#1A2230] to-[#0D1117] rounded-3xl overflow-hidden border border-white/10 group-hover:border-[#FF9900]/50 transition-all duration-500">
+        <div className="relative w-full h-full bg-linear-to-b from-[#1A2230] to-[#0D1117] rounded-3xl overflow-hidden border border-white/10 group-hover:border-[#FF9900]/50 transition-all duration-500">
           
           {/* Background Pattern */}
           <div className="absolute inset-0 opacity-5">
@@ -87,7 +87,7 @@ export default function TiltedCard({
           </div>
 
           {/* Top Accent Line */}
-          <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-[#FF9900] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+          <div className="absolute top-0 left-0 right-0 h-1 bg-linear-to-r from-transparent via-[#FF9900] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
           {/* Profile Image Section */}
           <div className="relative pt-8 pb-4 flex justify-center">
@@ -100,7 +100,7 @@ export default function TiltedCard({
               <div className={`absolute -inset-2 rounded-full border-2 border-dashed border-[#FF9900]/40 transition-all duration-700 ${isHovered ? 'rotate-180 border-[#FF9900]/80' : 'rotate-0'}`} />
               
               {/* Solid Ring */}
-              <div className="absolute -inset-1 rounded-full bg-gradient-to-br from-[#FF9900] to-[#CC7A00] p-[2px]">
+              <div className="absolute -inset-1 rounded-full bg-linear-to-br from-[#FF9900] to-[#CC7A00] p-0.5">
                 <div className="w-full h-full rounded-full bg-[#1A2230]" />
               </div>
               
@@ -179,7 +179,7 @@ export default function TiltedCard({
           </div>
 
           {/* Shine Effect */}
-          <div className={`absolute inset-0 bg-gradient-to-tr from-transparent via-white/5 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000 ease-out`} />
+          <div className={`absolute inset-0 bg-linear-to-tr from-transparent via-white/5 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-out`} />
         </div>
       </div>
     </motion.div>

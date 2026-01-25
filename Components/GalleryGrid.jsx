@@ -74,7 +74,7 @@ export default function GalleryGrid({ images }) {
             onClick={() => setSelectedIndex(index)}
           >
             {/* Image Container */}
-            <div className={`relative w-full ${index % 3 === 1 ? 'aspect-[4/5]' : index % 3 === 2 ? 'aspect-[4/3]' : 'aspect-square'}`}>
+            <div className={`relative w-full ${index % 3 === 1 ? 'aspect-4/5' : index % 3 === 2 ? 'aspect-4/3' : 'aspect-square'}`}>
               {image.image ? (
                 <Image
                   src={image.image}
@@ -85,13 +85,13 @@ export default function GalleryGrid({ images }) {
                   loading="lazy"
                 />
               ) : (
-                <div className="w-full h-full bg-gradient-to-br from-aws-orange/20 via-secondary-bg to-accent-dark-blue/20 flex items-center justify-center">
+                <div className="w-full h-full bg-linear-to-br from-aws-orange/20 via-secondary-bg to-accent-dark-blue/20 flex items-center justify-center">
                   <span className="text-5xl">{image.emoji || '📷'}</span>
                 </div>
               )}
               
               {/* Hover Overlay */}
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-300 flex flex-col justify-end p-4">
+              <div className="absolute inset-0 bg-linear-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-300 flex flex-col justify-end p-4">
                 <div className="transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
                   <h3 className="text-white font-semibold text-lg mb-1">{image.title}</h3>
                   {image.description && (
@@ -159,7 +159,7 @@ export default function GalleryGrid({ images }) {
             onClick={(e) => e.stopPropagation()}
           >
             {/* Image */}
-            <div className="relative w-full aspect-video md:aspect-[16/10] bg-secondary-bg rounded-xl overflow-hidden">
+            <div className="relative w-full aspect-video md:aspect-16/10 bg-secondary-bg rounded-xl overflow-hidden">
               {selectedImage.image ? (
                 <Image
                   src={selectedImage.image}
@@ -170,7 +170,7 @@ export default function GalleryGrid({ images }) {
                   priority
                 />
               ) : (
-                <div className="w-full h-full bg-gradient-to-br from-aws-orange/20 via-secondary-bg to-accent-dark-blue/20 flex items-center justify-center">
+                <div className="w-full h-full bg-linear-to-br from-aws-orange/20 via-secondary-bg to-accent-dark-blue/20 flex items-center justify-center">
                   <span className="text-8xl">{selectedImage.emoji || '📷'}</span>
                 </div>
               )}
@@ -200,7 +200,7 @@ export default function GalleryGrid({ images }) {
                     e.stopPropagation();
                     setSelectedIndex(idx);
                   }}
-                  className={`relative w-16 h-16 rounded-lg overflow-hidden flex-shrink-0 transition-all duration-300 ${
+                  className={`relative w-16 h-16 rounded-lg overflow-hidden shrink-0 transition-all duration-300 ${
                     idx === selectedIndex 
                       ? 'ring-2 ring-aws-orange scale-110' 
                       : 'opacity-50 hover:opacity-100'

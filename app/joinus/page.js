@@ -1,9 +1,8 @@
 'use client';
 
 import { useState } from 'react';
-import Footer from '@/Components/Footer';
-import Particles from '@/Components/Particles';
 import { Users, Handshake, Mic, MapPin, Mail, Loader2 } from 'lucide-react';
+import Particles from '@/Components/Particles';
 
 export default function JoinUs() {
   const [activeTab, setActiveTab] = useState('core');
@@ -64,7 +63,7 @@ export default function JoinUs() {
   ];
 
   return (
-    <div className="max-h-screen flex flex-col bg-primary-bg">
+    <div className="min-h-screen flex flex-col bg-primary-bg">
       <div className="absolute inset-0 z-0">
         <Particles />
       </div>
@@ -94,7 +93,7 @@ export default function JoinUs() {
               <div className="space-y-6">
                 {/* Address */}
                 <div className="flex gap-4 items-start">
-                  <div className="w-12 h-12 rounded-full bg-[rgba(255,153,0,0.1)] flex items-center justify-center flex-shrink-0">
+                  <div className="w-12 h-12 rounded-full bg-[rgba(255,153,0,0.1)] flex items-center justify-center shrink-0">
                     <MapPin className="w-6 h-6 text-[#FF9900]" />
                   </div>
                   <div>
@@ -109,7 +108,7 @@ export default function JoinUs() {
 
                 {/* Email */}
                 <div className="flex gap-4 items-start">
-                  <div className="w-12 h-12 rounded-full bg-[rgba(255,153,0,0.1)] flex items-center justify-center flex-shrink-0">
+                  <div className="w-12 h-12 rounded-full bg-[rgba(255,153,0,0.1)] flex items-center justify-center shrink-0">
                     <Mail className="w-6 h-6 text-[#FF9900]" />
                   </div>
                   <div>
@@ -247,7 +246,7 @@ export default function JoinUs() {
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="w-full py-3 px-6 bg-gradient-to-r from-[#FF9900] to-[#FFB333] text-white font-semibold rounded-lg hover:from-[#FFB333] hover:to-[#FFCC66] transition-all duration-300 transform hover:scale-105 active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none flex items-center justify-center gap-2"
+                className="w-full py-3 px-6 bg-linear-to-r from-[#FF9900] to-[#FFB333] text-white font-semibold rounded-lg hover:from-[#FFB333] hover:to-[#FFCC66] transition-all duration-300 transform hover:scale-105 active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none flex items-center justify-center gap-2"
               >
                 {isSubmitting ? (
                   <>
@@ -263,9 +262,7 @@ export default function JoinUs() {
         </div>
       </main>
 
-      <div className="relative z-10">
-        <Footer />
-      </div>
+      
     </div>
   );
 }

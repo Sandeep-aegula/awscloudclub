@@ -48,7 +48,7 @@ export default function Home() {
       </div>
 
       {/* 1. HERO SECTION (Modified to include the 3D model) */}
-      <section className="relative overflow-hidden py-24 lg:py-32 bg-gradient-to-b from-secondary-bg to-primary-bg">
+      <section className="relative overflow-hidden py-24 lg:py-32 bg-linear-to-b from-secondary-bg to-primary-bg">
 
         {/* Background Blob Decoration */}
         <motion.div
@@ -208,7 +208,7 @@ export default function Home() {
                       </p>
                     </div>
 
-                    <div className="flex-grow flex items-center">
+                    <div className="grow flex items-center">
                       <a
                         target="_blank"
                         rel="noopener noreferrer"

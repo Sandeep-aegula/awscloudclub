@@ -121,7 +121,7 @@ export default function EventsPage() {
       </div>
 
       {/* Hero Section */}
-      <section className="relative z-10 overflow-hidden py-16 lg:py-24 bg-gradient-to-br from-secondary-bg/95 via-primary-bg/90 to-primary-bg/95">
+      <section className="relative z-10 overflow-hidden py-16 lg:py-24 bg-linear-to-br from-secondary-bg/95 via-primary-bg/90 to-primary-bg/95">
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-aws-orange/10 rounded-full blur-3xl -z-10" />
 
         <div className="max-w-7xl mx-auto px-4 text-center">
